@@ -1,5 +1,5 @@
 const CLI = require('./lib/cli.js');
 
-const cli = new CLI();
+CLI = new CLI();
 
-cli.run();
+CLI.run();
