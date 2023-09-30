@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const { Circle, Square, Triangle } = require("./Shapes.js");
+const { Circle, Square, Triangle } = require("./lib/Shapes.js");
 
 class Svg {
     constructor() {
@@ -68,4 +68,6 @@ function writeToFile(Svg) {
 
 }
 init();
+
+module.exports = index;
 
