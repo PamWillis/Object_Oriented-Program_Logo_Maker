@@ -1,13 +1,9 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateLogo = require("./lib/Shapes")
+const generateLogo = require("./lib/Shapes.js")
 
 
-
-
-const init = () => {
-  inquirer
-    .prompt([
+  const Inputs = [
       {
         type: 'input',
         name: 'text',
@@ -32,7 +28,7 @@ const init = () => {
         name: 'shapeColor',
         message: 'Enter a color keyword or hexadecimal number for the color of the shape',
       },
-    ]);
+    ];
 
   //writes file
   const writeToFile = (filename, data) => {
@@ -42,12 +38,14 @@ const init = () => {
   //initiate node app
   const init = () => {
     inquirer
-      .prompt(userInputs)
+      .prompt(Inputs)
       .then((answers) => {
         writeToFile('logo.svg', generateLogo(answers));
       });
   }
-}
 
-module.exports = answers;
+  init();
+
+
+
 
