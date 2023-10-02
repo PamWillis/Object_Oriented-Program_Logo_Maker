@@ -2,13 +2,16 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const generateLogo = require("./lib/Shapes.js")
 const path = require('path');
+const MaxLengthInputPrompt = require('inquirer-maxlength-input-prompt')
 
+inquirer.registerPrompt('maxlength-input', MaxLengthInputPrompt)
 
   const Inputs = [
       {
-        type: 'input',
+        type: 'maxlength-input',
         name: 'text',
-        message: 'What are your initials?',
+        message: 'Enter up to 3 characters',
+        maxLength: 3
       },
 
       {
@@ -29,12 +32,7 @@ const path = require('path');
         name: 'shapeColor',
         message: 'Enter a color keyword or hexadecimal number for the color of the shape',
       },
-      {
-        type: 'input',
-        name: 'validate',
-        message: ['default, filter, validate, tramsformer'],
-
-      }
+      
     ];
 
   //writes file
@@ -47,6 +45,7 @@ const path = require('path');
     inquirer
       .prompt(Inputs)
       .then((answers) => {
+        (console.log)
         writeToFile('logo.svg', generateLogo(answers));
       });
   }
