@@ -1,6 +1,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateLogo = require("./lib/Shapes.js")
+const path = require('path');
 
 
   const Inputs = [
@@ -20,7 +21,7 @@ const generateLogo = require("./lib/Shapes.js")
         type: 'list',
         name: 'shape',
         message: 'Choose a shape',
-        choices: ['circle', 'square', 'triangle']
+        choices: ['Circle', 'Square', 'Triangle']
       },
 
       {
@@ -28,11 +29,17 @@ const generateLogo = require("./lib/Shapes.js")
         name: 'shapeColor',
         message: 'Enter a color keyword or hexadecimal number for the color of the shape',
       },
+      {
+        type: 'input',
+        name: 'validate',
+        message: ['default, filter, validate, tramsformer'],
+
+      }
     ];
 
   //writes file
   const writeToFile = (filename, data) => {
-    return fs.writeFileSync(path.join(process.cwd(), fileName), data);
+    return fs.writeFileSync(path.join(process.cwd(), filename), data);
   };
 
   //initiate node app
