@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateLogo = require("./lib/Shapes.js")
+const {generateLogo} = require("./lib/Shapes.js")
 const path = require('path');
 const MaxLengthInputPrompt = require('inquirer-maxlength-input-prompt')
 
@@ -46,7 +46,7 @@ inquirer.registerPrompt('maxlength-input', MaxLengthInputPrompt)
       .prompt(Inputs)
       .then((answers) => {
         (console.log)
-        writeToFile('logo.svg', generateLogo(answers));
+        writeToFile('logo.svg', (generateLogo(answers)));
       });
   }
 
